@@ -1,0 +1,89 @@
+﻿@model vmLogin
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+}
+
+@section styles {
+    <link href="@Url.Content("~/Plugins/Captcha/captcha.css")" rel="stylesheet" />
+}
+<!--驗證碼↑↓-->
+@section scriptsbody {
+    <script src="@Url.Content("~/Plugins/Captcha/captcha.js")"></script>
+}
+
+<div class="card mt-2 card-size-small m-auto ">
+    <div class="card-header text-white bg-primary">
+        <div class="float-start"><h3>@ActionService.ViewActionName</h3></div>
+        <div class="float-end"><h3>@ActionService.ViewPrgInfo</h3></div>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row form-group">
+                @Html.LabelFor(model => model.UserNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.UserNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="control-label col-md-3">驗證碼</div>
+                <div class="control-label col-md-9">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="captcha-input" required autocomplete="off" placeholder="請輸入驗證碼 ...">
+                            <span id="errCaptcha"></span>
+                        </div>
+                        <div class="col-md-4 mt-1">
+                            <!-- col-md- 把元件分12等分 ，mt- = margen top mb=下 ms=左(star) me=右-->
+                            <div class="captcha-code code dynamic-code float-start me-2"></div>
+                            <div class="captcha-reload float-start" role="button"><i class="fas fa-sync-alt"></i></div>
+                            <!--亂碼產生器-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="row form-group">
+                <div class="control-label col-md-2"></div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="captcha-input" required autocomplete="off" placeholder="請輸入驗證碼 ...">
+                        <span id="errCaptcha"></span>
+                    </div>
+                </div> <!--填入欄分出來-->
+            
+
+            <hr />
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <div class="float-start">
+                        <input type="submit" value="登入系統" class="@ActionService.ButtonClassUpdate" />
+                    </div>
+                    <div class="float-end">
+                        @Html.ActionLink("註冊帳號", "Register", "User", new { area = "" }, new { @class = "btn btn-success" })
+                    </div>
+                    <div class="float-end me-1">
+                        @Html.ActionLink("忘記密碼", "Forget", "User", new { area = "" }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+

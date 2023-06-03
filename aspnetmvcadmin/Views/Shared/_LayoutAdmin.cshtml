@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 ASP.NET 應用程式</title>
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/datepicker.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/all.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/SweetAlert/sweetalert2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/main.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/BootstrapSelect/bootstrap-select.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/DataPicker/datepicker.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/NiceAdmin/style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-3.6.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.13.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.8.3.js")"></script>
+    <script src="@Url.Content("~/Scripts/moment.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/SweetAlert/sweetalert2.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/main.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/locales-all.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/examples/js/theme-chooser.js")"></script>
+    <script src="@Url.Content("~/Plugins/BootstrapSelect/bootstrap-select.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataPicker/datepicker.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataPicker/datepicker-zh-TW.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.full.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.js")"></script>
+    <script src="@Url.Content("~/Scripts/chart.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/lang/zh.js")"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.8.3.js")"></script>
+    <script src="@Url.Content("~/Plugins/Site/Site.js")"></script>
+    @RenderSection("sectionhead", required: false)
+    @Html.Partial(Url.Content("~/Views/PartialViews/_PartialErrorMessage.cshtml"))
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="@Url.Action("Index" , "Home" , new { area = UserService.RoleNo })">
+                <div>
+                    <div class="float-start">
+                        <img src="@Url.Content("~/Images/Application/logo.png")" class="logo-image" />
+                    </div>
+                    <div class="float-start ms-2 pt-1">
+                        <span style="font-size:20px;font-weight:bold">
+                            @AppService.CompanyShortName
+                        </span>
+                        <br />
+                        <span style="font-size: 15px; font-weight: bold">
+                            @AppService.EnglishShortName
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge bg-primary badge-number">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                        <li class="dropdown-header">
+                            你有 4 個新通知
+                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全部顯示</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="notification-item">
+                            <i class="bi bi-exclamation-circle text-warning"></i>
+                            <div>
+                                <h4>通知標題1</h4>
+                                <p>通知內文1</p>
+                                <p>通知內文2</p>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="notification-item">
+                            <i class="bi bi-x-circle text-danger"></i>
+                            <div>
+                                <h4>通知標題2</h4>
+                                <p>通知內文1</p>
+                                <p>通知內文2</p>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="notification-item">
+                            <i class="bi bi-check-circle text-success"></i>
+                            <div>
+                                <h4>通知標題3</h4>
+                                <p>通知內文1</p>
+                                <p>通知內文2</p>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="notification-item">
+                            <i class="bi bi-info-circle text-primary"></i>
+                            <div>
+                                <h4>通知標題4</h4>
+                                <p>通知內文1</p>
+                                <p>通知內文2</p>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="dropdown-footer">
+                            <a href="#">顯示所有通知</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span class="badge bg-success badge-number">3</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                        <li class="dropdown-header">
+                            你有 3 個新訊息
+                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全部顯示</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="@Url.Content("~/Images/User/U001.jpg")" alt="王大明" class="rounded-circle width-size-48" />
+                                <div>
+                                    <h4>王大明</h4>
+                                    <p>訊息內容</p>
+                                    <p>4 小時前</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="@Url.Content("~/Images/User/U002.jpg")" alt="李大成" class="rounded-circle width-size-48" />
+                                <div>
+                                    <h4>李大成</h4>
+                                    <p>訊息內容</p>
+                                    <p>6 小時前</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="@Url.Content("~/Images/User/U003.jpg")" alt="楊大光" class="rounded-circle width-size-48" />
+                                <div>
+                                    <h4>楊大光</h4>
+                                    <p>訊息內容</p>
+                                    <p>8 小時前</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="dropdown-footer">
+                            <a href="#">顯示所有訊息</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="@Url.Content(UserService.UserImage)" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">@UserService.UserName (@UserService.RoleName)</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        @if (UserService.RoleNo == "User")
+                        {
+                            <li class="dropdown-header text-start">
+
+                                <h6>
+                                    歸屬部門：@UserService.DeptName <br />
+                                    職務名稱：@UserService.TitleName
+                                </h6>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        }
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start" href="@Url.Action("ChangePassword" , "Web" , new { area = ""})">
+                                <i class="bi bi-key-fill"></i>
+                                <h6>重設密碼</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start" href="@Url.Action("Index" , "Profile" , new { area = ""})">
+                                <i class="bi bi-person"></i>
+                                <h6>我的帳號</h6>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" title="登出系統" href="@Url.Action("Logout" , "Web" , new { area = ""})">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav><!-- End Icons Navigation -->
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item nav-header">
+                <i class="fas fa-server"></i>
+                <span>@AppService.AppName @AppService.AppVersion</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="components-alerts.html">
+                            <i class="bi bi-circle"></i><span>Alerts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-accordion.html">
+                            <i class="bi bi-circle"></i><span>Accordion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-badges.html">
+                            <i class="bi bi-circle"></i><span>Badges</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-breadcrumbs.html">
+                            <i class="bi bi-circle"></i><span>Breadcrumbs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-buttons.html">
+                            <i class="bi bi-circle"></i><span>Buttons</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-cards.html">
+                            <i class="bi bi-circle"></i><span>Cards</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-carousel.html">
+                            <i class="bi bi-circle"></i><span>Carousel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-list-group.html">
+                            <i class="bi bi-circle"></i><span>List group</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-modal.html">
+                            <i class="bi bi-circle"></i><span>Modal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-tabs.html">
+                            <i class="bi bi-circle"></i><span>Tabs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-pagination.html">
+                            <i class="bi bi-circle"></i><span>Pagination</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-progress.html">
+                            <i class="bi bi-circle"></i><span>Progress</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-spinners.html">
+                            <i class="bi bi-circle"></i><span>Spinners</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-tooltips.html">
+                            <i class="bi bi-circle"></i><span>Tooltips</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="forms-elements.html">
+                            <i class="bi bi-circle"></i><span>Form Elements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="forms-layouts.html">
+                            <i class="bi bi-circle"></i><span>Form Layouts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="forms-editors.html">
+                            <i class="bi bi-circle"></i><span>Form Editors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="forms-validation.html">
+                            <i class="bi bi-circle"></i><span>Form Validation</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>
+                @Html.ActionLink(ActionService.HomeName, ActionService.Index, ActionService.Home, new { area = UserService.RoleNo }, null)
+                / @PrgService.PrgNo @PrgService.PrgName
+            </h1>
+        </div>
+        <hr />
+        <section class="section dashboard">
+            <div class="card @ViewService.CardSizeCss">
+                <div class="card-header bg-primary text-white">
+                    <div class="float-start">
+                        <h4>@ViewService.ActionName</h4>
+                    </div>
+                    @if (!string.IsNullOrEmpty(ViewService.CardHeaderText))
+                    {
+                        <div class="float-end">
+                            <h4>@ViewService.CardHeaderText</h4>
+                        </div>
+                    }
+                </div>
+                <div class="card-body">
+                    @Html.Partial("~/Views/PartialViews/_PartialMessageText.cshtml") <!--加入TOAST-->
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="float-start copyright ms-2">
+            &copy;  @string.Format("Copyright {0} - {1} ", DateTime.Today.Year, DateTime.Today.Year + 10)
+            <strong>
+                <span> @AppService.PowerBy</span>
+            </strong>. All Rights Reserved
+        </div>
+        <div class="float-end copyright me-2">
+            @AppService.AppName 版本：@AppService.AppVersion
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/main.js")"></script>
+    @RenderSection("sectionbody", false)
+</body>
+</html>

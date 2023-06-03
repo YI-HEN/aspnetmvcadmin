@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D37E526-A4C7-499D-B199-519ACE7E2164}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>aspnetmvcadmin</RootNamespace>
+    <AssemblyName>aspnetmvcadmin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.96.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.96.0\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Codes\App_Attribute\LoginAuthorizeAttribute.cs" />
+    <Compile Include="App_Codes\App_Class\BaseClass.cs" />
+    <Compile Include="App_Codes\App_Class\BaseController.cs" />
+    <Compile Include="App_Codes\App_Class\ExcelColumn.cs" />
+    <Compile Include="App_Codes\App_Class\ExcelHeader.cs" />
+    <Compile Include="App_Codes\App_Class\SendMail.cs" />
+    <Compile Include="App_Codes\App_Enum\enAction.cs" />
+    <Compile Include="App_Codes\App_Enum\enCardSize.cs" />
+    <Compile Include="App_Codes\App_Enum\enSecurtyMode.cs" />
+    <Compile Include="App_Codes\App_Enum\enSortDirection.cs" />
+    <Compile Include="App_Codes\App_Extension\DataTableExtension.cs" />
+    <Compile Include="App_Codes\App_Extension\DateTimeExtension.cs" />
+    <Compile Include="App_Codes\App_Extension\IntegerExtension.cs" />
+    <Compile Include="App_Codes\App_Extension\NameValueExtension.cs" />
+    <Compile Include="App_Codes\App_Extension\StringExtension.cs" />
+    <Compile Include="App_Codes\App_HtmlHelper\HtmlTagHelper.cs" />
+    <Compile Include="App_Codes\App_Interface\IDapperRepository.cs" />
+    <Compile Include="App_Codes\App_Interface\IEFGenericRepository.cs" />
+    <Compile Include="App_Codes\App_Repository\AdoNetSqlClient.cs" />
+    <Compile Include="App_Codes\App_Repository\DapperRepository.cs" />
+    <Compile Include="App_Codes\App_Repository\EFGenericRepository.cs" />
+    <Compile Include="App_Codes\App_Service\ActionService.cs" />
+    <Compile Include="App_Codes\App_Service\AppService.cs" />
+    <Compile Include="App_Codes\App_Service\AttributeService.cs" />
+    <Compile Include="App_Codes\App_Service\ClosedxmlService.cs" />
+    <Compile Include="App_Codes\App_Service\CryptographyService.cs" />
+    <Compile Include="App_Codes\App_Service\FileService.cs" />
+    <Compile Include="App_Codes\App_Service\GmailService.cs" />
+    <Compile Include="App_Codes\App_Service\ImageService.cs" />
+    <Compile Include="App_Codes\App_Service\PageService.cs" />
+    <Compile Include="App_Codes\App_Service\PrgService.cs" />
+    <Compile Include="App_Codes\App_Service\SecurityService.cs" />
+    <Compile Include="App_Codes\App_Service\SendEmailService.cs" />
+    <Compile Include="App_Codes\App_Service\SessionService.cs" />
+    <Compile Include="App_Codes\App_Service\UserService.cs" />
+    <Compile Include="App_Codes\App_Service\ViewService.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Applications.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendars.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CityAreas.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Citys.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CloseDates.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CodeBases.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CodeDatas.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Companys.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departments.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employees.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExtensionTables.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormDetail.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormMaster.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForumBoards.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forums.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Languages.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Logs.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MapPositions.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Messages.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetadataModel\metaUsers.cs" />
+    <Compile Include="Models\Modules.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notifications.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Programs.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PropertyNames.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository Model\repoCodeDatas.cs" />
+    <Compile Include="Models\Repository Model\repoDepartments.cs" />
+    <Compile Include="Models\Repository Model\repoRoles.cs" />
+    <Compile Include="Models\Repository Model\repoTitles.cs" />
+    <Compile Include="Models\Repository Model\repoUsers.cs" />
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Securitys.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SelectList Model\listDepartment.cs" />
+    <Compile Include="Models\SelectList Model\listGender.cs" />
+    <Compile Include="Models\SelectList Model\listRole.cs" />
+    <Compile Include="Models\SelectList Model\listTitle.cs" />
+    <Compile Include="Models\SelectList Model\listUserCode.cs" />
+    <Compile Include="Models\Titles.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodoLists.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vacations.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\vmForget.cs" />
+    <Compile Include="Models\ViewModel\vmLogin.cs" />
+    <Compile Include="Models\ViewModel\vmRegister.cs" />
+    <Compile Include="Models\ViewModel\vmResetPassword.cs" />
+    <Compile Include="Models\WorkflowDetails.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkflowMasters.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkflowRoles.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkflowRoleUsers.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkflowRoutes.cs">
+      <DependentUpon>dbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\all.css" />
+    <Content Include="Content\all.min.css" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Application\favicon.png" />
+    <Content Include="Images\Application\logo.png" />
+    <Content Include="Images\User\demo.jpg" />
+    <Content Include="Images\User\mis.jpg" />
+    <Content Include="Images\User\none.jpg" />
+    <Content Include="Images\User\U001.jpg" />
+    <Content Include="Images\User\U002.jpg" />
+    <Content Include="Images\User\U003.jpg" />
+    <Content Include="Images\User\U004.jpg" />
+    <Content Include="Images\User\U005.jpg" />
+    <Content Include="Images\User\U006.jpg" />
+    <Content Include="Images\User\U007.jpg" />
+    <Content Include="Images\User\U008.jpg" />
+    <Content Include="Images\User\U009.jpg" />
+    <Content Include="Models\dbModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dbModel1.Context.cs</LastGenOutput>
+      <DependentUpon>dbModel1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\dbModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbModel1.edmx</DependentUpon>
+      <LastGenOutput>dbModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Plugins\BootstrapSelect\bootstrap-select.min.css" />
+    <Content Include="Plugins\BootstrapSelect\bootstrap-select.min.js" />
+    <Content Include="Plugins\Captcha\captcha.css" />
+    <Content Include="Plugins\Captcha\captcha.js" />
+    <Content Include="Plugins\Captcha\captcha.txt" />
+    <Content Include="Plugins\DataPicker\datepicker-zh-TW.js" />
+    <Content Include="Plugins\DataPicker\datepicker.css" />
+    <Content Include="Plugins\DataPicker\datepicker.js" />
+    <Content Include="Plugins\DataTimePicker\jquery.datetimepicker.full.js" />
+    <Content Include="Plugins\DataTimePicker\jquery.datetimepicker.full.min.js" />
+    <Content Include="Plugins\DataTimePicker\jquery.datetimepicker.js" />
+    <Content Include="Plugins\DataTimePicker\jquery.datetimepicker.min.css" />
+    <Content Include="Plugins\DataTimePicker\jquery.datetimepicker.min.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\background-events.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\daygrid-views.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\external-dragging-2cals.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\external-dragging-builtin.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\full-height.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\google-calendar.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\icalendar.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\json.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\js\theme-chooser.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\list-sticky-header.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\list-views.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\locales.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\month-view.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\natural-height.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\selectable.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\theming.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\time-zones.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\timegrid-sticky-header.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\timegrid-views-hscroll.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\timegrid-views.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\week-numbers.html" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales-all.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales-all.min.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\af.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-dz.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-kw.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-ly.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-ma.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-sa.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar-tn.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ar.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\az.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\bg.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\bn.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\bs.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ca.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\cs.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\cy.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\da.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\de-at.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\de.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\el.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\en-au.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\en-gb.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\en-nz.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\eo.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\es-us.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\es.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\et.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\eu.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\fa.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\fi.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\fr-ca.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\fr-ch.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\fr.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\gl.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\he.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\hi.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\hr.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\hu.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\hy-am.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\id.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\is.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\it.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ja.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ka.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\kk.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\km.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ko.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ku.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\lb.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\lt.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\lv.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\mk.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ms.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\nb.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ne.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\nl.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\nn.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\pl.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\pt-br.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\pt.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ro.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ru.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\si-lk.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sk.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sl.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sm.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sq.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sr-cyrl.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sr.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\sv.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ta-in.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\th.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\tr.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\ug.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\uk.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\uz.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\vi.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\zh-cn.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\locales\zh-tw.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\main.css" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\main.js" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\main.min.css" />
+    <Content Include="Plugins\FullCalendar\5.11.0\lib\main.min.js" />
+    <Content Include="Plugins\NiceAdmin\main.js" />
+    <Content Include="Plugins\NiceAdmin\style.css" />
+    <Content Include="Plugins\Prism\prism.css" />
+    <Content Include="Plugins\Prism\prism.js" />
+    <Content Include="Plugins\Site\Site.js" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.all.js" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.all.min.js" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.css" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.js" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.min.css" />
+    <Content Include="Plugins\SweetAlert\sweetalert2.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ckeditor\adapters\jquery.js" />
+    <Content Include="Scripts\ckeditor\ckeditor.js" />
+    <Content Include="Scripts\ckeditor\config.js" />
+    <Content Include="Scripts\ckeditor\contents.css" />
+    <Content Include="Scripts\ckeditor\lang\af.js" />
+    <Content Include="Scripts\ckeditor\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\lang\az.js" />
+    <Content Include="Scripts\ckeditor\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\lang\bn.js" />
+    <Content Include="Scripts\ckeditor\lang\bs.js" />
+    <Content Include="Scripts\ckeditor\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\lang\da.js" />
+    <Content Include="Scripts\ckeditor\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\lang\de.js" />
+    <Content Include="Scripts\ckeditor\lang\el.js" />
+    <Content Include="Scripts\ckeditor\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\lang\en.js" />
+    <Content Include="Scripts\ckeditor\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\lang\es.js" />
+    <Content Include="Scripts\ckeditor\lang\et.js" />
+    <Content Include="Scripts\ckeditor\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\lang\he.js" />
+    <Content Include="Scripts\ckeditor\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\lang\id.js" />
+    <Content Include="Scripts\ckeditor\lang\is.js" />
+    <Content Include="Scripts\ckeditor\lang\it.js" />
+    <Content Include="Scripts\ckeditor\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\lang\ka.js" />
+    <Content Include="Scripts\ckeditor\lang\km.js" />
+    <Content Include="Scripts\ckeditor\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\lang\ms.js" />
+    <Content Include="Scripts\ckeditor\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\lang\no.js" />
+    <Content Include="Scripts\ckeditor\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\lang\si.js" />
+    <Content Include="Scripts\ckeditor\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\lang\th.js" />
+    <Content Include="Scripts\ckeditor\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\codesnippetgeshi.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\blank.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\classtrees_geshi.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\elementindex.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\elementindex_geshi.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\errors.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\geshi\core\GeSHi.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\geshi\core\_geshi.php.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\index.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\li_geshi.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\banner.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractClass.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractClass_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractMethod.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractPrivateClass.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractPrivateClass_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\AbstractPrivateMethod.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\blank.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Class.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\class_folder.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Class_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Constant.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Constructor.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Destructor.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\empty.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\file.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\folder.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Function.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\function_folder.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Global.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\I.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Index.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Interface.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Interface_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\L.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Lminus.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Lplus.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Method.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\next_button.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\next_button_disabled.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\package.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\package_folder.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Page.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Page_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\previous_button.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\previous_button_disabled.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\PrivateClass.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\PrivateClass_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\PrivateMethod.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\PrivateVariable.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\private_class_logo.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\StaticMethod.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\StaticVariable.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\T.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Tminus.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Tplus.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\tutorial.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\tutorial_folder.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\up_button.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\images\Variable.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\media\stylesheet.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\packages.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\todolist.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\api\__filesource\fsource_geshi_core_geshi.php.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\geshi-doc.html" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\geshi-doc.txt" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\plugin.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\dialogs\codesnippet.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\icons\codesnippet.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\icons\hidpi\codesnippet.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\highlight.pack.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\arta.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\ascetic.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-dune.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-dune.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-forest.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-forest.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-heath.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-heath.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-lakeside.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-lakeside.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-seaside.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-seaside.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\brown_paper.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\brown_papersq.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\default.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\docco.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\far.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\foundation.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\github.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\googlecode.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\idea.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\ir_black.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\magula.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\mono-blue.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\monokai.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\monokai_sublime.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\obsidian.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\paraiso.dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\paraiso.light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\pojoaque.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\pojoaque.jpg" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\railscasts.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\rainbow.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\school_book.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\school_book.png" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\solarized_dark.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\solarized_light.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\sunburst.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-blue.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-bright.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-eighties.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\vs.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\xcode.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\styles\zenburn.css" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\plugin.js" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\samples\codesnippet.html" />
+    <Content Include="Scripts\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="Scripts\ckeditor\plugins\copyformatting\cursors\cursor-disabled.svg" />
+    <Content Include="Scripts\ckeditor\plugins\copyformatting\cursors\cursor.svg" />
+    <Content Include="Scripts\ckeditor\plugins\copyformatting\styles\copyformatting.css" />
+    <Content Include="Scripts\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\plugindefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\authentication.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\exportpdf.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\configfilename.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\integration.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\notifications.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\paperformat.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\readonly.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\stylesheets.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.html" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\notification.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\resourcespaths.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\statistics.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\stylesheets.js" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\_helpers\tools.js" />
+    <Content Include="Scripts\ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="Scripts\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="Scripts\ckeditor\plugins\icons.png" />
+    <Content Include="Scripts\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="Scripts\ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="Scripts\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Scripts\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromlibreoffice\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastetools\filter\common.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastetools\filter\image.js" />
+    <Content Include="Scripts\ckeditor\plugins\preview\images\pagebreak.gif" />
+    <Content Include="Scripts\ckeditor\plugins\preview\preview.html" />
+    <Content Include="Scripts\ckeditor\plugins\preview\styles\screen.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="Scripts\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\angel_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\angry_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\broken_heart.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\confused_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\cry_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\devil_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\embarrassed_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\envelope.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\heart.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\kiss.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\lightbulb.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\omg_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\regular_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\sad_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\shades_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\teeth_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\thumbs_down.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\thumbs_up.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\tongue_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="Scripts\ckeditor\plugins\smiley\images\wink_smile.png" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Scripts\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="Scripts\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Scripts\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Scripts\ckeditor\plugins\templates\dialogs\templates.css" />
+    <Content Include="Scripts\ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="Scripts\ckeditor\plugins\templates\templatedefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="Scripts\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="Scripts\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="Scripts\ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Scripts\ckeditor\SECURITY.md" />
+    <Content Include="Scripts\ckeditor\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\stylesheets.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\readonly.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\paperformat.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\notifications.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\integration.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\tests\manual\configfilename.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\exportpdf\CHANGELOG.md" />
+    <Content Include="Scripts\ckeditor\package.json" />
+    <Content Include="Scripts\ckeditor\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="Scripts\ckeditor\bender-runner.config.json" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\colorize.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\aliased.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\cssgen.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\cssgen2.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\example.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\langcheck.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\contrib\langwiz.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\BUGS" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\CHANGES" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\COPYING" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\phpdoc.ini" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\README" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\THANKS" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\docs\TODO" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\4cs.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\6502acme.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\6502kickass.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\6502tasm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\68000devpac.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\abap.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\actionscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\actionscript3.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ada.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\algol68.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\apache.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\applescript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\apt_sources.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\arm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\asm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\asp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\asymptote.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\autoconf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\autohotkey.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\autoit.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\avisynth.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\awk.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\bascomavr.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\bash.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\basic4gl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\bf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\bibtex.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\blitzbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\bnf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\boo.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\c.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\caddcl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cadlisp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cfdg.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cfm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\chaiscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cil.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\clojure.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cmake.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cobol.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\coffeescript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cpp-qt.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cpp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\csharp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\css.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\cuesheet.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\c_loadrunner.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\c_mac.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\d.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\dcl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\dcpu16.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\dcs.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\delphi.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\diff.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\div.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\dos.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\dot.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\e.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ecmascript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\eiffel.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\email.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\epc.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\erlang.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\euphoria.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\f1.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\falcon.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\fo.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\fortran.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\freebasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\freeswitch.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\fsharp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gambas.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gdb.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\genero.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\genie.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gettext.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\glsl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gml.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gnuplot.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\go.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\groovy.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\gwbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\haskell.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\haxe.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\hicest.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\hq9plus.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\html4strict.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\html5.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\icon.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\idl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ini.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\inno.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\intercal.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\io.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\j.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\java.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\java5.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\javascript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\jquery.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\kixtart.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\klonec.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\klonecpp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\latex.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lb.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ldif.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lisp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\llvm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\locobasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\logtalk.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lolcode.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lotusformulas.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lotusscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lsl2.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\lua.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\m68k.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\magiksf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\make.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mapbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\matlab.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mirc.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mmix.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\modula2.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\modula3.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mpasm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mxml.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\mysql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\nagios.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\netrexx.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\newlisp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\nsis.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oberon2.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\objc.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\objeck.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ocaml-brief.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ocaml.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\octave.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oobas.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oorexx.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oracle11.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oracle8.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oxygene.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\oz.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\parasail.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\parigp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pascal.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pcre.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\per.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\perl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\perl6.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\php-brief.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\php.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pic16.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pike.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pixelbender.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pli.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\plsql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\postgresql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\povray.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\powerbuilder.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\powershell.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\proftpd.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\progress.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\prolog.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\properties.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\providex.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\purebasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pycon.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\pys60.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\python.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\q.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\qbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\rails.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\rebol.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\reg.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\rexx.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\robots.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\rpmspec.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\rsplus.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\ruby.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\sas.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\scala.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\scheme.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\scilab.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\sdlbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\smalltalk.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\smarty.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\spark.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\sparql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\sql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\stonescript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\systemverilog.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\tcl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\teraterm.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\text.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\thinbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\tsql.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\typoscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\unicon.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\upc.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\urbi.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\uscript.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vala.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vb.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vbnet.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vedit.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\verilog.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vhdl.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\vim.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\visualfoxpro.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\visualprolog.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\whitespace.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\whois.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\winbatch.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\xbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\xml.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\xorg_conf.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\xpp.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\yaml.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\z80.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\dev\geshi\geshi\zxbasic.php" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippetgeshi\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\CHANGES.md" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\LICENSE" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\codesnippet\lib\highlight\README.ru.md" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\json\events.json" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\php\get-events.php" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\php\get-time-zones.php" />
+    <Content Include="Plugins\FullCalendar\5.11.0\examples\php\utils.php" />
+    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.vb.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Empty.cs.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Empty.vb.t4" />
+    <Content Include="CodeTemplates\MvcViewWithoutModel\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Create.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Empty.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Empty.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\List.vb.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.vb.include.t4" />
+    <Content Include="CodeTemplates\MvcView\CreateEdit.cs.t4" />
+    <EntityDeploy Include="Models\dbModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dbModel1.edmx.diagram">
+      <DependentUpon>dbModel1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\ckeditor\vendor\promise.js" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="Scripts\moment.min.js.map" />
+    <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutLite.cshtml" />
+    <Content Include="Views\PartialViews\_PartialErrorMessage.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\MessageResult.cshtml" />
+    <Content Include="Views\User\Forget.cshtml" />
+    <Content Include="Views\User\ResetPassword.cshtml" />
+    <Content Include="Views\PartialViews\_PartialMessageText.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13380</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13380/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.0.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

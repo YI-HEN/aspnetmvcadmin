@@ -1,0 +1,22 @@
+﻿@section sectionhead {
+	<link href="@Url.Content("~/Plugins/Captcha/captcha.css")" rel="stylesheet" />
+}
+
+@section sectionbody {
+    <script src="@Url.Content("~/Plugins/Captcha/captcha.js")"></script>
+}
+
+<div class="row form-group">
+    <div class="control-label col-md-2">驗證碼</div>
+    <div class="control-label col-md-10">
+        <div class="captcha-code code dynamic-code float-start mr-2"></div>
+        <div class="captcha-reload float-start" role="button"><i class="fas fa-sync-alt"></i></div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="control-label col-md-2"></div>
+    <div class="col-md-10">
+        <input type="text" class="form-control" id="captcha-input" required autocomplete="off" placeholder="請輸入驗證碼 ...">
+        <span id="errCaptcha"></span>
+    </div>
+</div>

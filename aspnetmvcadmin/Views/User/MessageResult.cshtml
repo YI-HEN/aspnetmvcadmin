@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "MessageResult";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+}
+
+<div class="card mt-2 card-size-small m-auto ">
+    <div class="card-header text-white bg-primary">
+        <div class="float-start">
+            <h3>
+                提示訊息
+            </h3>
+        </div>
+        <hr />
+        <h3>@ViewBag.MessageText</h3>
+        <hr />
+        @Html.ActionLink("返回登入頁", "Login", "User", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
